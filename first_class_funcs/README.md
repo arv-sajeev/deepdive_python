@@ -15,8 +15,9 @@
 * we can annotate the function with its arguments and returns as well
 * `def func(a : <doc_1> ,b : <doc_2> ) -> <return_doc>`
 * these are not stored in the `__doc__`  and can only be accessed using help()
-* you can use any expression in an annotation using function concatenate 
+* you can use any expression in an annotation using function concatenate, this expression will be evaluated when the function is defined 
 * they are stored in the `__annotations__` property, it is a dictionary with keys as the parameter names 
 * sphinx can be used for documentation automation
 * type hints can be used for type checking using tools 
+
    
