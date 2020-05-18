@@ -12,4 +12,18 @@
 * the free variables value is the object the cell points to, so python looks up the cell object and then whatever the cell is pointing to
 * we can use the introspection tools to inspect a function, `fn.__code__.co_freevars` and `fn.__closure__` this gives the cell implementation 
 
+* every time we run a function a new scope is created, if the function creates a closure a new closure is created every time as well 
 
+* we can share scopes by returning inner functions together to get the same closures
+* the closure is created when the function is created but the values are evaluated only when the functions are called
+* so be careful when using closures
+
+## 3.Nested closure
+
+* you can nest closures, just in case you haven't guessed by now
+
+## 4.Closure application 
+
+* we can use closures as a sort of alternative for implementing class variables in functions instead of classes
+* counters loggers and other stuff
+ 
