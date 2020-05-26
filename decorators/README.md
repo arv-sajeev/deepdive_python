@@ -38,7 +38,7 @@ We can implement decorators using the return closure method, there is a dedicate
 * so we can use a class rather than using closures
 
 
-## 5. Applications of decorator 
+## 6. Applications of decorator 
 
 Lets take a look at couple of applications for which we can use the decorator pattern 
 *  make timers
@@ -46,5 +46,15 @@ Lets take a look at couple of applications for which we can use the decorator pa
 *  used for checking constraints authentication and other kinds of checking before running a function or calling an api
 *  it can be used for memoization or implementing a cache of sorts where the closure keeps track of values according to a specified metric 
 *  there is a builtin function that can be used for memoization in functools called the lru_cache
-	
+
+## 7. Monkey patching
+Monkey patching is making changes to code a module or a class in runtime. This can be used for implementing decorators in classes by changing the attributes of a function in runtime 
+
+## 8. Single dispatch generic function
+
+There is no function overloading in python due to obvious reasons like, dynamic typing and variable args, it's pretty tough to keep track of everything i skipped this part
+
+
+
+
 
