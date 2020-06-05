@@ -36,3 +36,46 @@ It is a just  an object of type module, it is loaded when import is called and w
 * you can find the finders with `sys.meta_path`
 * we can add a path to the default paths by using `sys.path.append(<new_path>)`
 
+## 4. Import variants
+
+### a. `import <module-name>` 
+* first checks sys.modules if the module exists already
+* if not it is loaded
+* then a symbol is added to the global namespace of the importing file
+* this symbol references the module object in sys.modules
+
+### b. `import <module_name> as <alias>`
+* check sys.modules and loads reference if required
+* a symbol with alias name is added which references the module in sys modules
+
+### c. `from <module_name> import <object-name>`
+* is math is sys.modules if not load it and insert reference
+* add a symbol for object name in global namespace referencing `<module-name>.<object-name>`
+* the module name is not in the global namespace
+* we can do this using the alias method as well
+
+In every case when an object from a module has to be referenced the entire module has to be loaded to sys.modules.
+
+Using `from <module> import *` is usually a bad idea since it'll completely pollute the namespace since the namespace will have the object names loaded and not `<module>.<object_name>`
+
+## 5. Reloading modules
+* we can force python to reimport by deleting the objects from sys.modules and import it again
+* but this can lead to problems since other files that have reference to the module already imported don't have it's address updated in the namespace since the object reference is in the global namespace
+* instead we can use the `importlib` module for functions related to module
+* the reload function in importlib reloads the module but the address of the object is kept the same 
+
+## 6. The `__main__`
+* the `__name__` property of a file is set to `__main__` if it is is the entry point for execution of the program
+* when you call functions of other modules from a function the value of `__name__` in the module will be the file name
+* We can check what the `__name__` attribute is set to and find out whether we are executing the function or calling it from another file, this can be used to run functions from modules
+
+## 7. Module varieties
+Python modules may reside in 
+* the built-ins
+* in files on disk
+* pre compiled
+* in zip archives
+* rest api's
+* databases
+* we just have to make custom finders and loaders for each case 
+
